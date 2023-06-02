@@ -147,4 +147,64 @@ export const listOptionNamaMHS = [
     label: "Visra Handriani",
     value: "Visra",
   },
+  {
+    label: "Muhammad irfan",
+    value: "Irfan",
+  },
+  {
+    label: "Satrialdi Fernanda Zami",
+    value: "Satria",
+  },
+  {
+    label: "Nikita Chairunnisa",
+    value: "Nikita",
+  },
+  {
+    label: "Muhammad Ilham",
+    value: "Ilham",
+  },
+  {
+    label: "Muhammad Fikrullah Mujahid",
+    value: "Fikrullah",
+  },
+  {
+    label: "Alfath Aldenof",
+    value: "Alfath",
+  },
+  {
+    label: "Zelfriadi Abrar",
+    value: "Zelfriadi",
+  },
+  {
+    label: "Rizki Ramadanil",
+    value: "Danil",
+  },
+  {
+    label: "Widia Lestari",
+    value: "Widia",
+  },
+  {
+    label: "Anisa Fadilah",
+    value: "Anisa",
+  },
+  {
+    label: "Rizqul Fauzy",
+    value: "Rizqul",
+  },
+  {
+    label: "Pratama Aditya",
+    value: "Adit",
+  },
+  {
+    label: "Jimmy Efendi",
+    value: "Jimmy",
+  },
+  {
+    label: "Ihsanul Ikhwan Sawir",
+    value: "Ihsan",
+  },
+  {
+    label: "Andi Fathul Mukminin",
+    value: "Fathul",
+  },
 ];
