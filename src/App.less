@@ -7,6 +7,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  // height: 100vh;
+  // margin-top: 250px;
 }
 @media (min-width: 476px) {
   .sd-main-content {
@@ -61,20 +63,26 @@
     max-width: 100%;
   }
 }
+
 .ant-card-body {
-  -webkit-box-shadow: 14px 9px 23px -6px #def3ff;
-  -moz-box-shadow: 14px 9px 23px -6px #def3ff;
-  box-shadow: 14px 9px 23px -6px #def3ff;
+  -webkit-box-shadow: 14px 9px 23px -6px rgba(222, 243, 255, 1);
+  -moz-box-shadow: 14px 9px 23px -6px rgba(222, 243, 255, 1);
+  box-shadow: 14px 9px 23px -6px rgba(222, 243, 255, 1);
 }
 .ant-modal-confirm-body {
   display: flex;
   justify-content: center;
+
+  > span {
+    display: none;
+  }
 }
-.ant-modal-confirm-body > span {
-  display: none;
-}
+
+// .ant-form-item {
+//   margin-bottom: 50px;
+// }
+
 .button-submit {
   margin-bottom: 50px;
   text-align: center;
 }
-/*# sourceMappingURL=App.css.map */
