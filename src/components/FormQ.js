@@ -1,4 +1,13 @@
-import { Button, Divider, Form, Grid, Radio, Select, Typography } from "antd";
+import {
+  Button,
+  Divider,
+  Form,
+  Grid,
+  Modal,
+  Radio,
+  Select,
+  Typography,
+} from "antd";
 import { useState } from "react";
 import { addDoc, collection } from "firebase/firestore";
 import dbFs from "../firebase";
@@ -16,15 +25,27 @@ const FormQ = ({ ipData }) => {
 
   const onFinish = (values) => {
     setState((prev) => ({ ...prev, isLoadingSubmitBtn: true }));
-    addDoc(collection(dbFs, "questions"), { ...values, ip: ipData })
-      ?.then(() => {
-        window.location.reload();
-        localStorage?.setItem("IS_FILLED_KUESIONER", true);
-        localStorage?.setItem("USER", values?.q1);
-      })
-      ?.finally(() =>
-        setState((prev) => ({ ...prev, isLoadingSubmitBtn: false }))
-      );
+    try {
+      addDoc(collection(dbFs, "questions"), { ...values, ip: ipData })
+        ?.then(() => {
+          window.location.reload();
+          localStorage?.setItem("IS_FILLED_KUESIONER", true);
+          localStorage?.setItem("USER", values?.q1);
+        })
+        ?.finally(() => {
+          Modal.error({
+            title: "Error !",
+            content:
+              "Sepertinya internetmu bermasalah, coba untuk direfresh lagi 🙏🏻",
+            onOk: () => {
+              window.location.reload();
+            },
+          });
+          setState((prev) => ({ ...prev, isLoadingSubmitBtn: false }));
+        });
+    } catch {
+      setState((prevState) => ({ ...prevState, isLoadingSubmitBtn: false }));
+    }
   };
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
