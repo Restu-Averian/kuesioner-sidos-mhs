@@ -33,17 +33,17 @@ const FormQ = ({ ipData }) => {
           localStorage?.setItem("USER", values?.q1);
         })
         ?.finally(() => {
-          Modal.error({
-            title: "Error !",
-            content:
-              "Sepertinya internetmu bermasalah, coba untuk direfresh lagi 🙏🏻",
-            onOk: () => {
-              window.location.reload();
-            },
-          });
           setState((prev) => ({ ...prev, isLoadingSubmitBtn: false }));
         });
     } catch {
+      Modal.error({
+        title: "Error !",
+        content:
+          "Sepertinya internetmu bermasalah, coba untuk direfresh lagi 🙏🏻",
+        onOk: () => {
+          window.location.reload();
+        },
+      });
       setState((prevState) => ({ ...prevState, isLoadingSubmitBtn: false }));
     }
   };
