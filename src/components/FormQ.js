@@ -38,8 +38,7 @@ const FormQ = ({ ipData }) => {
     } catch {
       Modal.error({
         title: "Error !",
-        content:
-          "Sepertinya internetmu bermasalah, coba untuk direfresh lagi 🙏🏻",
+        content: "Sepertinya ada kesalahan, mohon untuk direfresh lagi 🙏🏻",
         onOk: () => {
           window.location.reload();
         },
