@@ -1,3 +1,10 @@
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
 .sd-main-content {
   position: relative;
   margin-left: auto;
@@ -5,8 +12,7 @@
   padding-right: 15px;
   padding-left: 15px;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 50px auto;
 }
 @media (min-width: 476px) {
   .sd-main-content {

@@ -15,7 +15,7 @@ const App = () => {
   const [eventMusicState, setEventMusicState] = useState("pause");
 
   const audio = document.getElementById("audio");
-
+  const video = document.getElementById("myVideo");
   const fetchIp = async () => {
     try {
       const response = await fetch("https://api.ipify.org/?format=json");
@@ -50,9 +50,28 @@ const App = () => {
   useEffect(() => {
     readDataHandler();
   }, []);
+  useEffect(() => {
+    if (eventMusicState === "play") {
+      video?.play();
+    }
+  }, [eventMusicState]);
 
   return (
     <Fragment>
+      {eventMusicState === "play" && (
+        <video
+          autoPlay
+          loop
+          muted
+          playsinline
+          id="myVideo"
+          style={{ filter: "blur(5px)" }}
+        >
+          <source src="/grass.mp4" type="video/mp4" />
+          Your browser does not support HTML5 video.
+        </video>
+      )}
+
       {isLoadingFields ? (
         <LoadingComponent />
       ) : (
@@ -68,20 +87,51 @@ const App = () => {
               } `}
             />
           ) : (
-            <Layout.Content className="sd-main-content">
+            <Layout.Content
+              className="sd-main-content"
+              style={{
+                ...(eventMusicState === "play" && {
+                  backgroundColor: "rgba(217, 234, 255, 0.8)",
+                  backdropFilter: "blur(5px) ",
+                }),
+                borderRadius: 20,
+                paddingBottom: 40,
+              }}
+            >
               <Row gutter={[16, 32]} justify="center">
                 <Col span={24} style={{ textAlign: "center" }}>
-                  <Typography.Title>
+                  <Typography.Title
+                    {...(eventMusicState === "play" && {
+                      style: {
+                        color: "#000000",
+                      },
+                    })}
+                  >
                     Survey Dosen Pembimbing Jurusan TI PNP 2022/2023
                   </Typography.Title>
                   <Row gutter={[16, 16]}>
                     <Col span={24}>
-                      <Typography.Text style={{ fontSize: 18 }} underline>
+                      <Typography.Text
+                        style={{
+                          fontSize: 18,
+                          ...(eventMusicState === "play" && {
+                            color: "#000000",
+                          }),
+                        }}
+                        underline
+                      >
                         Kalian ga bakal aku cepuin kok ke dospem kalian, JANJI !
                       </Typography.Text>
                     </Col>
                     <Col span={24}>
-                      <Typography.Text style={{ marginRight: 14 }}>
+                      <Typography.Text
+                        style={{
+                          marginRight: 14,
+                          ...(eventMusicState === "play" && {
+                            color: "#000000",
+                          }),
+                        }}
+                      >
                         Sambil denger musik deh biar chill juga
                       </Typography.Text>
                       <audio id="audio">
@@ -101,7 +151,8 @@ const App = () => {
                           onClick={() => playingMusicHandler("play")}
                           size="large"
                           style={{
-                            borderColor: "white",
+                            borderColor: "transparent",
+                            backgroundColor: "transparent",
                           }}
                         />
                       ) : (
@@ -118,7 +169,8 @@ const App = () => {
                           onClick={() => playingMusicHandler("pause")}
                           size="large"
                           style={{
-                            borderColor: "white",
+                            borderColor: "transparent",
+                            backgroundColor: "transparent",
                           }}
                         />
                       )}
