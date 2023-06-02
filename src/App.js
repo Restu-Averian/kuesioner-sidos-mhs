@@ -71,10 +71,12 @@ const App = () => {
             <Layout.Content className="sd-main-content">
               <Row gutter={[16, 32]} justify="center">
                 <Col span={24} style={{ textAlign: "center" }}>
-                  <Typography.Title>Form Kuesioner</Typography.Title>
+                  <Typography.Title>
+                    Survey Dosen Pembimbing Jurusan TI PNP 2022/2023
+                  </Typography.Title>
                   <Row gutter={[16, 16]}>
                     <Col span={24}>
-                      <Typography.Text style={{ fontSize: 18 }}>
+                      <Typography.Text style={{ fontSize: 18 }} underline>
                         Kalian ga bakal aku cepuin kok ke dospem kalian, JANJI !
                       </Typography.Text>
                     </Col>
