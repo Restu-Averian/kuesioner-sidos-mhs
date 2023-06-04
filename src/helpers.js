@@ -27,9 +27,12 @@ export const configChart = (data) => {
     angleField: "value",
     colorField: "type",
     radius: 0.8,
+    legend: {
+      position: "bottom",
+    },
     label: {
       type: "outer",
-      content: "{name} {percentage}",
+      content: "{name} {percentage} - {value} mahasiswa",
     },
     interactions: [
       {

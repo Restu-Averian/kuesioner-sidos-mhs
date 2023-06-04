@@ -44,7 +44,7 @@ const ModalListAlasanQ2 = ({ state, setState }) => {
     <Fragment>
       {xs ? (
         <Drawer
-          title="List alasan pengusulan dosen utnuk menjadi dospem tiap mahasiswa"
+          title="List alasan pengusulan dosen untuk menjadi dospem tiap mahasiswa"
           open={state.isOpenModalListAlasan}
           onClose={() =>
             setState((prev) => ({ ...prev, isOpenModalListAlasan: false }))
@@ -52,11 +52,14 @@ const ModalListAlasanQ2 = ({ state, setState }) => {
           closable
           bodyStyle={{ padding: "20px 10px" }}
         >
-          <Pie {...configAlasanQ2} />
+          <Pie
+            {...configAlasanQ2}
+            legend={{ layout: "vertical", position: "right" }}
+          />
         </Drawer>
       ) : (
         <Modal
-          title="List alasan pengusulan dosen utnuk menjadi dospem tiap mahasiswa"
+          title="List alasan pengusulan dosen untuk menjadi dospem tiap mahasiswa"
           open={state.isOpenModalListAlasan}
           onOk={() =>
             setState((prev) => ({ ...prev, isOpenModalListAlasan: false }))
@@ -69,9 +72,12 @@ const ModalListAlasanQ2 = ({ state, setState }) => {
               display: "none",
             },
           }}
-          width={1000}
+          width="100vw"
         >
-          <Pie {...configAlasanQ2} />
+          <Pie
+            {...configAlasanQ2}
+            legend={{ layout: "vertical", position: "right" }}
+          />
         </Modal>
       )}
     </Fragment>
@@ -213,8 +219,9 @@ const AdminHome = () => {
             </Typography.Text>
           </Col>
           <Col span={24}>
-            <Row>
-              <Col span={xs ? 24 : 12}>
+            <Row gutter={[16, 16]}>
+              {/* <Col span/={xs ? 24 : 12}> */}
+              <Col span={24}>
                 <Card title="Alasan Pengusulan Dosen">
                   <Row>
                     <Col span={24}>
@@ -237,7 +244,8 @@ const AdminHome = () => {
                   </Row>
                 </Card>
               </Col>
-              <Col span={xs ? 24 : 12}>
+              {/* <Col span={xs ? 24 : 12}> */}
+              <Col span={24}>
                 <Card
                   title="Dosen yang Diusulkan Sama/Tidak"
                   style={{ height: "100%" }}
