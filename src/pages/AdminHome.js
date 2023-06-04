@@ -215,10 +215,7 @@ const AdminHome = () => {
           <Col span={24}>
             <Row>
               <Col span={xs ? 24 : 12}>
-                <Card
-                  title="Alasan Pengusulan Dosen"
-                  style={{ height: "100%" }}
-                >
+                <Card title="Alasan Pengusulan Dosen">
                   <Row>
                     <Col span={24}>
                       <Pie {...configQ2} />
@@ -241,7 +238,10 @@ const AdminHome = () => {
                 </Card>
               </Col>
               <Col span={xs ? 24 : 12}>
-                <Card title="Dosen yang Diusulkan Sama/Tidak">
+                <Card
+                  title="Dosen yang Diusulkan Sama/Tidak"
+                  style={{ height: "100%" }}
+                >
                   <Pie {...configQ3} />
                 </Card>
               </Col>
