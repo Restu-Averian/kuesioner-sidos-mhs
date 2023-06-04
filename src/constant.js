@@ -208,3 +208,48 @@ export const listOptionNamaMHS = [
     value: "Fathul",
   },
 ];
+
+export const listOptionsQ2 = [
+  {
+    label: "Keinginan aja sih",
+    value: "keinginan",
+  },
+  {
+    label: "Ada alasannya",
+    value: "beralasan",
+  },
+];
+
+export const listOptionsQ3 = [
+  {
+    label: "Sama kok, Res",
+    value: "sama",
+  },
+  {
+    label: "Beda",
+    value: "beda",
+  },
+];
+
+export const listOptionsQ4 = [
+  {
+    label: "Sama",
+    value: "sama",
+  },
+  {
+    label: "Udah ga dibolehin :(",
+    value: "ga dibolehin",
+  },
+];
+
+export const listOptionsReasonQ2 = [
+  {
+    label:
+      "Aku udah tau kok dosen yang aku usulin bidangnya sesuai sama topik TA aku",
+    value: "sesuai topik ta",
+  },
+  {
+    label: "Dosennya ga killer, asik",
+    value: "sifat_dosen",
+  },
+];

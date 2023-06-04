@@ -67,7 +67,7 @@
     max-width: 100%;
   }
 }
-.ant-card-body {
+.ant-card {
   -webkit-box-shadow: 14px 9px 23px -6px #def3ff;
   -moz-box-shadow: 14px 9px 23px -6px #def3ff;
   box-shadow: 14px 9px 23px -6px #def3ff;

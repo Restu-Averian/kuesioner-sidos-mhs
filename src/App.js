@@ -6,6 +6,7 @@ import FormQ from "./components/FormQ";
 import LoadingComponent from "./components/LoadingComponent";
 import dbFs from "./firebase";
 import { PlayCircleFilled, PauseCircleFilled } from "@ant-design/icons";
+import Admin from "./pages/Admin";
 
 const App = () => {
   const [isLsExist, setIsLsExist] = useState(false);
@@ -13,6 +14,8 @@ const App = () => {
   const [arrDatasFromFb, setArrDatasFromFb] = useState([]);
   const [isLoadingFields, setIsLoadingFields] = useState(true);
   const [eventMusicState, setEventMusicState] = useState("pause");
+  const [isAdmin, setIsAdmin] = useState(0);
+  let count = 0;
 
   const audio = document.getElementById("audio");
   const video = document.getElementById("myVideo");
@@ -58,12 +61,30 @@ const App = () => {
 
   return (
     <Fragment>
+      {isAdmin === 0 && (
+        <div
+          id="hiddenBtn"
+          onClick={() => {
+            count += 1;
+            if (count === 5) {
+              setIsAdmin(1);
+            }
+          }}
+          style={{
+            position: "fixed",
+            bottom: 50,
+            right: 20,
+            padding: 20,
+            backgroundColor: "green",
+          }}
+        />
+      )}
       {eventMusicState === "play" && (
         <video
           autoPlay
           loop
           muted
-          playsinline
+          playsInline
           id="myVideo"
           style={{ filter: "blur(5px)" }}
         >
@@ -74,6 +95,8 @@ const App = () => {
 
       {isLoadingFields ? (
         <LoadingComponent />
+      ) : isAdmin === 1 ? (
+        <Admin isAdmin={isAdmin} setIsAdmin={setIsAdmin} />
       ) : (
         <Fragment>
           {isLsExist ||

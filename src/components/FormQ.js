@@ -3,15 +3,22 @@ import {
   Divider,
   Form,
   Grid,
+  message,
   Modal,
   Radio,
   Select,
   Typography,
 } from "antd";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { addDoc, collection } from "firebase/firestore";
 import dbFs from "../firebase";
-import { listOptionNamaMHS } from "../constant";
+import {
+  listOptionNamaMHS,
+  listOptionsQ2,
+  listOptionsQ3,
+  listOptionsQ4,
+  listOptionsReasonQ2,
+} from "../constant";
 import { sortArr } from "../helpers";
 
 const FormQ = ({ ipData }) => {
@@ -21,6 +28,7 @@ const FormQ = ({ ipData }) => {
     reasonQ4: "ga dibolehin",
     isLoadingSubmitBtn: false,
   });
+
   const { xs } = Grid.useBreakpoint();
 
   const onFinish = (values) => {
@@ -36,64 +44,23 @@ const FormQ = ({ ipData }) => {
           setState((prev) => ({ ...prev, isLoadingSubmitBtn: false }));
         });
     } catch {
-      Modal.error({
-        title: "Error !",
+      message.open({
+        type: "error",
         content: "Sepertinya ada kesalahan, mohon untuk direfresh lagi 🙏🏻",
-        onOk: () => {
-          window.location.reload();
-        },
       });
+      // Modal.error({
+      //   title: "Error !",
+      //   content: "Sepertinya ada kesalahan, mohon untuk direfresh lagi 🙏🏻",
+      //   onOk: () => {
+      //     window.location.reload();
+      //   },
+      // });
       setState((prevState) => ({ ...prevState, isLoadingSubmitBtn: false }));
     }
   };
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
-
-  const listOptionsQ2 = [
-    {
-      label: "Keinginan aja sih",
-      value: "keinginan",
-    },
-    {
-      label: "Ada alasannya",
-      value: "beralasan",
-    },
-  ];
-
-  const listOptionsQ3 = [
-    {
-      label: "Sama kok, Res",
-      value: "sama",
-    },
-    {
-      label: "Beda",
-      value: "beda",
-    },
-  ];
-
-  const listOptionsQ4 = [
-    {
-      label: "Sama",
-      value: "sama",
-    },
-    {
-      label: "Udah ga dibolehin :(",
-      value: "ga dibolehin",
-    },
-  ];
-
-  const listOptionsReasonQ2 = [
-    {
-      label:
-        "Aku udah tau kok dosen yang aku usulin bidangnya sesuai sama topik TA aku",
-      value: "sesuai topik ta",
-    },
-    {
-      label: "Dosennya ga killer, asik",
-      value: "sifat_dosen",
-    },
-  ];
 
   const onChangeQ2 = ({ target: { value } }) => {
     setState((prev) => ({ ...prev, reasonQ2: value }));
