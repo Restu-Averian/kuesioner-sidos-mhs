@@ -1,13 +1,4 @@
-import {
-  Button,
-  Card,
-  Form,
-  Input,
-  message,
-  Modal,
-  Space,
-  Typography,
-} from "antd";
+import { Button, Card, Form, Input, message, Space, Typography } from "antd";
 import React, { Fragment } from "react";
 
 const Admin = ({ isAdmin, setIsAdmin }) => {
