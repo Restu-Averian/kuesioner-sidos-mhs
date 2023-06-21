@@ -7,6 +7,7 @@ import {
   Radio,
   Select,
   Typography,
+  Input,
 } from "antd";
 import { useState } from "react";
 import { addDoc, collection } from "firebase/firestore";
@@ -95,7 +96,12 @@ const FormQ = ({ ipData }) => {
         ]}
         labelCol={{ span: 24 }}
       >
-        <Select
+        <Input
+          style={{
+            width: "100%",
+          }}
+        />
+        {/* <Select
           showSearch
           style={{
             width: "100%",
@@ -104,7 +110,7 @@ const FormQ = ({ ipData }) => {
           filterOption={(input, option) =>
             (option?.label ?? "").toLowerCase().includes(input.toLowerCase())
           }
-        />
+        /> */}
       </Form.Item>
       <Divider />
 
