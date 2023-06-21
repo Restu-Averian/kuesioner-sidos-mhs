@@ -91,7 +91,7 @@ const FormQ = ({ ipData }) => {
         rules={[
           {
             required: true,
-            message: "Pilih dulu pliss :(",
+            message: "Isi dulu pliss :(",
           },
         ]}
         labelCol={{ span: 24 }}
