@@ -1,12 +1,15 @@
 export const sortArr = (arr, props) => {
-  return arr.sort((a, b) => {
-    if (b?.[props] > a?.[props]) {
-      return -1;
-    } else if (b?.[props] < a?.[props]) {
-      return 1;
-    }
-    return 0;
-  });
+  if (props) {
+    return arr.sort((a, b) => {
+      if (b?.[props] > a?.[props]) {
+        return -1;
+      } else if (b?.[props] < a?.[props]) {
+        return 1;
+      }
+      return 0;
+    });
+  }
+  return arr.sort();
 };
 
 export const arrTotQn = (arr, qn, val) => {

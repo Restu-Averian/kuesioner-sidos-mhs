@@ -1,16 +1,25 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Pie } from "@ant-design/charts";
-import { Button, Card, Col, Drawer, Grid, Modal, Row, Typography } from "antd";
+import {
+  Button,
+  Card,
+  Col,
+  Collapse,
+  Drawer,
+  Grid,
+  Modal,
+  Row,
+  Typography,
+} from "antd";
 import { collection, getDocs } from "firebase/firestore";
 import React, { useEffect, useState, Fragment } from "react";
 import dbFs from "../firebase";
-import { arrTotQn, configChart } from "../helpers";
+import { arrTotQn, configChart, sortArr } from "../helpers";
 import LoadingComponent from "../components/LoadingComponent";
 
 const ModalListAlasanQ2 = ({ state, setState }) => {
   const [arrDatasChart, setArrDatasChart] = useState([]);
   const { xs } = Grid.useBreakpoint();
-
   const configAlasanQ2 = configChart(arrDatasChart);
 
   const processChartDatas = () => {
@@ -212,6 +221,17 @@ const AdminHome = () => {
             }),
           }}
         >
+          <Col span={24}>
+            {/* <Collapse>
+              <Collapse.Panel header="List yang isi survey" key="1">
+                {sortArr(state?.arrDatasFromFb?.map((data) => data?.q1))?.map(
+                  (data) => (
+                    <p>{data}</p>
+                  )
+                )}
+              </Collapse.Panel>
+            </Collapse> */}
+          </Col>
           <Col span={24} style={{ textAlign: "center" }}>
             <Typography.Title>Report</Typography.Title>
             <Typography.Text>
@@ -253,11 +273,11 @@ const AdminHome = () => {
                   <Pie {...configQ3} />
                 </Card>
               </Col>
-              <Col span={24}>
+              {/* <Col span={24}>
                 <Card title="Perbedaan Topik yang Diajukan">
                   <Pie {...configQ4} />
                 </Card>
-              </Col>
+              </Col> */}
             </Row>
           </Col>
           <Col span={24}>

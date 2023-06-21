@@ -77,7 +77,7 @@ const FormQ = ({ ipData }) => {
       initialValues={{
         q2: "beralasan",
         q3: "beda",
-        q4: "ga dibolehin",
+        // q4: "ga dibolehin",
       }}
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
@@ -191,7 +191,7 @@ const FormQ = ({ ipData }) => {
       </Form.Item>
       <Divider />
 
-      <Typography.Text strong>
+      {/* <Typography.Text strong>
         4.Apakah topik TA yang kamu kirim di link{" "}
         <Typography.Link target="_blank" href="http://bit.ly/JudulPA-TA23">
           http://bit.ly/JudulPA-TA23
@@ -217,7 +217,7 @@ const FormQ = ({ ipData }) => {
           optionType="button"
           style={{ marginTop: 12 }}
         />
-      </Form.Item>
+      </Form.Item> */}
 
       <Form.Item>
         <Button

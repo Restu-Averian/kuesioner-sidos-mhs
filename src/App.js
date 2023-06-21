@@ -131,7 +131,8 @@ const App = () => {
                       },
                     })}
                   >
-                    Survey Dosen Pembimbing TRPL 2022/2023
+                    {/* Survey Dosen Pembimbing TRPL 2022/2023 */}
+                    Survey Dosen Pembimbing TI 2022/2023
                   </Typography.Title>
                   <Row gutter={[16, 16]}>
                     <Col span={24}>

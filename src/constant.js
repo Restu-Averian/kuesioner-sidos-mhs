@@ -207,6 +207,10 @@ export const listOptionNamaMHS = [
     label: "Andi Fathul Mukminin",
     value: "Fathul",
   },
+  {
+    label: "Restu Averian Putra",
+    value: "Restu",
+  },
 ];
 
 export const listOptionsQ2 = [
